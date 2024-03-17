@@ -26,8 +26,7 @@
     height: 400px;
     margin: auto;
     background-color: rgba(79, 10, 133, 1);
-    border-radius: 50px;
-    border: 20px rgba(244, 2, 177, 1);
+    border-radius: 45px;
 
     display: flex;
     flex-direction: column;
@@ -54,6 +53,5 @@
 }
 
 .mensagem {
-    justify-content: space-between;
-    align-items: bottom;
+    color: rgba(244, 2, 177, 1);
 }
