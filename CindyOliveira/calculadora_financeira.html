@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 style="font-family: 'Courier New', Courier, monospace ; color: dimgray;">Simulador Financeiro- ColdTrack Solutions</h1>
+    <br>
+    Modelo: <input type="text" id="input_modelo"> <br>
+    <br>    
+    Preço do refrigerador sem iot: <input type="text" id="input_precosemiot"> <br>
+    <br>
+    Quantidade de refrigeradores: <input type="text" id="input_qtdrefrigerador"> <br>
+    <br>
+    Quantidade de portas do refrigerador: <input type="text" id="input_portas"> <br>
+    <br>
+    Seu lucro de vendas: <input type="text" id="input_lucro"> <br>
+    <br>
 
+    <button onclick="Analisar()">Consulte seus valores</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+ <script>
+    function Analisar(){
+        var modelo = (input_modelo.value)
+        var precosemiot = Number (input_precosemiot.value)
+        var qtdrefrigerador = Number(input_qtdrefrigerador.value)
+        var portas = Number(input_portas.value)
+        var lucro = Number(input_lucro.value)
+        
+        var lucroiot = lucro + (lucro * 0.15)
+        var precocomiot= precosemiot + (precosemiot * 0.15)
+        var qtdsensortemp=  1;
+        var qtdsensorprox = 1 * portas;
+        var qtdsensor = qtdsensorprox + qtdsensortemp;
+        
+
+        
+
+        div_mensagem.innerHTML = `Em seus ${qtdrefrigerador} refrigeradores com esse modelo ${modelo} instalaremos ${qtdsensor} sensores para que nosso trabalho seja efetivo! <br>
+        Então, haverá uma valorização no seu lucro por produto, porque ele valendo ${precosemiot}, com o nosso sistema ela custará ${precocomiot}, assim aumentando o seu lucro que era de ${lucro}, para ${lucroiot} por produto`
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+ </script>
