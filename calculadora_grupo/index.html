@@ -10,17 +10,24 @@
 
 <body>
 
-<div>
-    <h1 class="titulo"> <b> Cold Track Solutions </b></h1> 
-    <div class="linha"></div> <br> <br>
-</div>
+    <div>
+        <h1 class="titulo"> <b> Cold Track Solutions </b></h1>
+        <div class="linha"></div> <br> <br>
+    </div>
     <div class="alinhamento">
         <div class="inputs">
-            Nome da Empresa: <input class="textoInput" type="text" id="ipt_empresa" placeholder="Nome da sua Empresa"> <br><br>
-            Valor do Refrigerador(R$): <input class="textoInput" type="text" id="ipt_valorRefrigerador" placeholder="Valor de cada Refrigerador"> <br><br>
-            Vendas mensal de refrigeradores <input class="textoInput" type="text" id="ipt_refrigerador" placeholder="Número inteiro De vendas Diarias"> <br><br>
+            Nome da Empresa: <input class="textoInput" type="text" id="ipt_empresa" placeholder="Nome da sua Empresa">
+            <br><br>
+            Modelo  do Refrigerador: <input class="textoInput" type="text" id="ipt_tipoRefrigerador"
+                placeholder="Nome do Refrigerador"> <br><br>
+            Quantidade de Portas: <input class="textoInput" type="text" id="ipt_qtdPortas"
+                placeholder="Quantidade de portas do Refrigerador"> <br><br>
+            Valor do Refrigerador(R$): <input class="textoInput" type="text" id="ipt_valorRefrigerador"
+                placeholder="Valor de cada Refrigerador"> <br><br>
+            Quantidade de refrigeradores vendidos no mês <input class="textoInput" type="text"
+                id="ipt_MensalRefrigerador" placeholder="Número inteiro De vendas Diarias"> <br><br>
         </div>
-            <div id="div_mensagem"></div>
+        <div id="div_mensagem"></div>
     </div>
     <button onclick="calcular()" class="botao">Calcular</button>
 
@@ -32,34 +39,49 @@
     function calcular() {
         var nomeEmpresa = ipt_empresa.value
         var valorRefrigerador = Number(ipt_valorRefrigerador.value)
-        var vendasRefrigerador = Number(ipt_refrigerador.value)
+        var vedasMensal = Number(ipt_MensalRefrigerador.value)
+        var qtdPortas = Number(ipt_qtdPortas.value)
+        var TipoRefrigerador = ipt_tipoRefrigerador.value
 
 
         var aumentoProduto = valorRefrigerador * 0.15
 
-        var aumentoRefrigerador = valorRefrigerador + (valorRefrigerador * 0.15) // aumento de vendas mensais
+        var aumentoRefrigerador = valorRefrigerador + (valorRefrigerador * 0.15)
 
-        var vendasDiarias =  aumentoRefrigerador * vendasRefrigerador// aumento de preço de vendas
+        var vendasTotalMensal = aumentoRefrigerador * vedasMensal
 
-        var vendasTotalMensal = vendasDiarias * 30 //Aumento em vendas mensais
+        var bloqueio = 1 * qtdPortas
+        var temperatura = qtdPortas / 2
 
         var vendasAnual = vendasTotalMensal * 12
 
-        var aumento = vendasTotalMensal + (vendasTotalMensal * 0.15)
 
 
 
 
 
         div_mensagem.innerHTML = `<div class = "divMensagem">
-        <span class ="mensagem"> <b>Beneficios da Cold Track: <br> <br>
+        <span class ="mensagem"> <b>Beneficios da Cold Track Solutions: <br> <br>
+
+
             Empresa: ${nomeEmpresa} <br> <br>
-            Aumento no Lucro de vendas : 15% no valor de cada produto = R$${aumentoProduto} <br> <br>
-            Preço Do refrigerador com o uso dos Sensores R$${aumentoRefrigerador} <br><br>
-            Vendas diarias: ${vendasRefrigerador} / Lucro Diario: R$${vendasDiarias}<br><br>
-            Lucro mensal: R$${vendasTotalMensal} <br> 
-            Lucro Anual com o uso dos Sensores: R$${vendasAnual}<br><br>
-            Aumento de Vendas Diarias: R$${aumentoProduto} Por produto vendido</b></span>
+            Modelo do Refrigerador: ${TipoRefrigerador}<br><br>
+
+            Valor original do Refrigerador:  <span style="color: green"> R$${valorRefrigerador}</span><br>
+
+            Aumento no Lucro de vendas: 15% no valor de cada produto:  <span style="color: green">R$${aumentoProduto}</span> <br> <br>
+
+
+            Preço Do Refrigerador com o uso dos Sensores: <span style="color: green"> R$${aumentoRefrigerador}</span <br><br>
+
+
+            Quantidade de sensores utilizados:<br>
+
+            <span style="color: blue">Temperatura:${temperatura.toFixed(0,1)}</span> |  <span style="color: red">Bloqueio:${bloqueio}</span><br><br>
+
+            Lucro mensal:  <span style="color: green"> R$${vendasTotalMensal} </span> <br> 
+
+            Lucro Anual com o uso dos Sensores:  <span style="color: green">R$${vendasAnual}</span> <br><br></b></span>
             </div>`
     }
 
