@@ -59,6 +59,9 @@
         var proximidade = 1 * qtdPortas
         var temperatura = qtdPortas / 2
 
+        var proximidadeTotal = 1 * vendasMensal
+        var temperaturaTotal = vendasMensal / 2
+
         var vendasOriginalAnual = originalMensal * 12
         var vendasAnual = vendasTotalMensal * 12
 
@@ -79,12 +82,16 @@
             Aumento no Lucro de vendas: 15% no valor de cada produto:  <span style="color: green">R$${aumentoProduto}</span> <br> <br>
 
 
-            Preço Do Refrigerador com o uso dos Sensores: <span style="color: green"> R$${aumentoRefrigerador}</span <br><br>
+            Preço Do Refrigerador com o uso dos Sensores: <span style="color: green"> R$${aumentoRefrigerador}</span> <br><br>
 
 
-            Quantidade de sensores utilizados:<br>
+            Quantidade de sensores utilizados por Refrigerador:<br>
 
             <span style="color: blue">Temperatura:${temperatura.toFixed(0, 1)}</span> |  <span style="color: red">Proximidade:${proximidade}</span><br><br>
+
+            Total de Refrigeradores utilizados:<br><br>
+
+            <span style="color: blue">Temperatura:${temperaturaTotal.toFixed(0, 1)}</span> |  <span style="color: red">Proximidade:${proximidadeTotal}</span><br><br>
 
             Lucro mensal SEM o uso dos sensores: <span style="color: red"> R$${originalMensal} </span><br>
             Lucro mensal COM o uso dos sensores:  <span style="color: green"> R$${vendasTotalMensal} </span> <br><br>
