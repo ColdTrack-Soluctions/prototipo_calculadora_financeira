@@ -16,16 +16,14 @@
     </div>
     <div class="alinhamento">
         <div class="inputs">
-            Nome da Empresa: <input class="textoInput" type="text" id="ipt_empresa" placeholder="Nome da sua Empresa">
+            Nome da Empresa: <input class="textoInput" type="text" id="ipt_empresa">
             <br><br>
-            Modelo  do Refrigerador: <input class="textoInput" type="text" id="ipt_tipoRefrigerador"
-                placeholder="Nome do Refrigerador"> <br><br>
-            Quantidade de Portas: <input class="textoInput" type="text" id="ipt_qtdPortas"
-                placeholder="Quantidade de portas do Refrigerador"> <br><br>
-            Valor do Refrigerador(R$): <input class="textoInput" type="text" id="ipt_valorRefrigerador"
-                placeholder="Valor de cada Refrigerador"> <br><br>
-            Quantidade de refrigeradores vendidos no mês <input class="textoInput" type="text"
-                id="ipt_MensalRefrigerador" placeholder="Número inteiro De vendas Diarias"> <br><br>
+            Modelo do Refrigerador: <input class="textoInput" type="text" id="ipt_tipoRefrigerador"> <br><br>
+            Quantidade de Portas: <input class="textoInput" type="text" id="ipt_qtdPortas">
+            <br><br>
+            Valor do Refrigerador(R$): <input class="textoInput" type="text" id="ipt_valorRefrigerador" rador"> <br><br>
+            Quantidade de refrigeradores vendidos no mês: <input class="textoInput" type="text"
+                id="ipt_MensalRefrigerador"> <br><br>
         </div>
         <div id="div_mensagem"></div>
     </div>
@@ -39,7 +37,7 @@
     function calcular() {
         var nomeEmpresa = ipt_empresa.value
         var valorRefrigerador = Number(ipt_valorRefrigerador.value)
-        var vedasMensal = Number(ipt_MensalRefrigerador.value)
+        var vendasMensal = Number(ipt_MensalRefrigerador.value)
         var qtdPortas = Number(ipt_qtdPortas.value)
         var TipoRefrigerador = ipt_tipoRefrigerador.value
 
@@ -48,11 +46,13 @@
 
         var aumentoRefrigerador = valorRefrigerador + (valorRefrigerador * 0.15)
 
-        var vendasTotalMensal = aumentoRefrigerador * vedasMensal
+        var originalMensal = valorRefrigerador * vendasMensal
+        var vendasTotalMensal = aumentoRefrigerador * vendasMensal
 
-        var bloqueio = 1 * qtdPortas
+        var proximidade = 1 * qtdPortas
         var temperatura = qtdPortas / 2
 
+        var vendasOriginalAnual = originalMensal * 12
         var vendasAnual = vendasTotalMensal * 12
 
 
@@ -77,11 +77,16 @@
 
             Quantidade de sensores utilizados:<br>
 
-            <span style="color: blue">Temperatura:${temperatura.toFixed(0,1)}</span> |  <span style="color: red">Bloqueio:${bloqueio}</span><br><br>
+            <span style="color: blue">Temperatura:${temperatura.toFixed(0, 1)}</span> |  <span style="color: red">Proximidade:${proximidade}</span><br><br>
 
-            Lucro mensal:  <span style="color: green"> R$${vendasTotalMensal} </span> <br> 
+            Lucro mensal SEM o uso dos sensores: <span style="color: red"> R$${originalMensal} </span><br>
+            Lucro mensal COM o uso dos sensores:  <span style="color: green"> R$${vendasTotalMensal} </span> <br><br>
+            
+                <hr>
 
-            Lucro Anual com o uso dos Sensores:  <span style="color: green">R$${vendasAnual}</span> <br><br></b></span>
+            Estimativa de Lucro Anual sem o uso dos Sensores:  <span style="color: red">R$${vendasOriginalAnual}</span> <br> <br>
+            Estimativa de Lucro Anual com o uso dos Sensores:  <span style="color: green;">R$${vendasAnual}</span> <br></b> <br>
+            
             </div>`
     }
 

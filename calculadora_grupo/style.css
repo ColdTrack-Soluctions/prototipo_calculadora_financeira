@@ -78,14 +78,14 @@ justify-items: auto;
     border-radius: 20px;
     border-style: inset;
     width: 500px;
-    height: 400px;
+    height: 450px;
     display: flex; 
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
     font-style: italic;
     font-family:'Courier New', Courier, monospace;
-    padding: 5px;
+    padding: 10px;
 }
 
 .coresLogo {
@@ -97,7 +97,7 @@ justify-items: auto;
 }
 
 span {
-    margin-top: 30px;
+    margin-top: px;
 }
 
 
